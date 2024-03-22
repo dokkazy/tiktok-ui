@@ -1,20 +1,24 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import Header from "../components/Header";
+import styles from './HeaderOnly.module.scss'
 
-const DefaultLayout = ({ children }) => {
+const cx = classNames.bind(styles);
+
+const HeaderOnly = ({ children }) => {
     return (
-        <div>
+        <div className={cx('wrapper')}>
             <Header />
-            <div className="content">
+            <div className={cx('content')}>
                 {children}
             </div>
         </div>
     )
 }
 
-DefaultLayout.propTypes = {
+HeaderOnly.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
 
-export default DefaultLayout
+export default HeaderOnly
