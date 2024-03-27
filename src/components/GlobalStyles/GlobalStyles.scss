@@ -4,6 +4,7 @@
 :root {
     --primary: #fe2c55;
     --black-color: #000;
+    --white-color: #fff;
     --text-color: #333;
 
     //Default layout
@@ -39,4 +40,8 @@ input,
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }
