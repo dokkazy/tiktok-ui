@@ -9,7 +9,7 @@ export const AccountItem = () => {
     return (
         <div>
             <div className={cx('wrapper')}>
-                <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/500176d816a2704a2b50205f3e96b560.jpeg?lk3s=a5d48078&x-expires=1711555200&x-signature=oS2%2FPQ4%2BhzKCy381gmq2I%2BLJHyg%3D" alt="Name" />
+                <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/f66a9971d2ad397edd4e8e905e19fb39.jpeg?lk3s=a5d48078&x-expires=1711818000&x-signature=o0B02V9NlA%2B6%2Bu4GcsWbbQ4jU3s%3D" alt="Name" />
                 <div className={cx('info')}>
                     <h4 className={cx('name')}>
                         <span> Nguyen Van A</span>

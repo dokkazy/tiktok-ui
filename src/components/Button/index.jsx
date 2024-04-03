@@ -21,7 +21,14 @@ Button.propTypes = {
     onClick: PropTypes.func,
 };
 
-function Button({ to, href, primary, outline, text, disabled, rounded, small, large, children, className, icon, onClick, ...props }) {
+function Button({ to, href,
+    primary, outline, text, disabled, rounded,
+    small, large,
+    children,
+    className,
+    icon,
+    onClick,
+    ...props }) {
     let Comp = 'button';
     const _props = {
         onClick,

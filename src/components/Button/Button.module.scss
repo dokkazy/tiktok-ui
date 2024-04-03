@@ -20,8 +20,14 @@
     }
 }
 
-.title {
-    margin: 8px;
+.icon + .title,
+.title + .icon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.icon {
+    display: inline-block;
+    text-align: center;
 }
 //Button type
 
