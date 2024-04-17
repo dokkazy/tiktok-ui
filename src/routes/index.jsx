@@ -1,11 +1,11 @@
 //layouts
-import { HeaderOnly } from '../components/Layout'
+import { HeaderOnly } from '@Layout'
 
-import Home from '../pages/Home'
-import Following from '../pages/Following'
-import Profile from '../pages/Profile';
-import Upload from '../pages/Upload';
-import Search from '../pages/Search';
+import Home from '@/pages/Home'
+import Following from '@/pages/Following'
+import Profile from '@/pages/Profile';
+import Upload from '@/pages/Upload';
+import Search from '@/pages/Search';
 //Public routes
 export const publicRoutes = [
     { path: '/', component: Home, },

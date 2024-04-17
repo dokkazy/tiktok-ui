@@ -7,16 +7,20 @@ const cx = classNames.bind(styles);
 
 import Button from '../../Button'
 
-const MenuItem = ({ data }) => {
+const MenuItem = ({ data, onClick }) => {
+    const classes = cx('menu-item', {
+        separate: data.separate
+    })
     return (
-        <Button className={cx('menu-item')} icon={data.icon} to={data.to}>
+        <Button className={classes} icon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     )
 }
 
 MenuItem.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    onClick: PropTypes.func
 };
 
 export default MenuItem
