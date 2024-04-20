@@ -1,25 +1,42 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import styles from './AccountItem.module.scss';
+import { Image } from '@components/Image';
 
 const cx = classNames.bind(styles);
 
-export const AccountItem = () => {
+export const AccountItem = ({ data }) => {
     return (
-        <div>
-            <div className={cx('wrapper')}>
-                <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/f66a9971d2ad397edd4e8e905e19fb39.jpeg?lk3s=a5d48078&x-expires=1711818000&x-signature=o0B02V9NlA%2B6%2Bu4GcsWbbQ4jU3s%3D" alt="Name" />
+            <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+                <Image
+                    className={cx('avatar')}
+                    src={data.avatar}
+                    alt={data.full_name}
+                    fallback='https://pethouse.com.vn/wp-content/uploads/2023/10/cho-corgi.jpg'
+                />
                 <div className={cx('info')}>
                     <h4 className={cx('name')}>
-                        <span> Nguyen Van A</span>
-                        <FontAwesomeIcon icon={faCheckCircle} className={cx('verified')} />
+                        <span>{data.nickname}</span>
+                        {data.tick && <FontAwesomeIcon icon={faCheckCircle} className={cx('verified')} />}
+
                     </h4>
-                    <span className={cx('username')}>nguyenvana</span>
+                    <span className={cx('username')}>{data.full_name}</span>
                 </div>
-            </div>
-        </div>
+            </Link>
     );
+};
+
+AccountItem.propTypes = {
+    data: PropTypes.shape({
+        avatar: PropTypes.string,
+        full_name: PropTypes.string,
+        nickname: PropTypes.string,
+        tick: PropTypes.bool,
+    }).isRequired,
 };
 
 export default AccountItem;

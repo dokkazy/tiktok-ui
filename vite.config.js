@@ -11,6 +11,8 @@ export default defineConfig({
       '@': "/src",
       '@components': '/src/components',
       '@Layout': '/src/components/Layout',
+      '@pages': '/src/pages',
+      '@routes': '/src/routes',
     },
   }
 })
