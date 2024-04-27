@@ -6,8 +6,10 @@
 
 .container {
     width: var(--default-layout-width);
+    max-width: 100%; // Prevents the container from being larger than the viewport
     display: flex;
     padding: 0 var(--default-layout-horizontal-spacer);
+    margin-top: var(--default-layout-header-height);
 }
 
 .content {

@@ -10,9 +10,11 @@ export default defineConfig({
     alias: {
       '@': "/src",
       '@components': '/src/components',
-      '@Layout': '/src/components/Layout',
+      '@hooks': '/src/hooks',
+      '@layouts': '/src/layouts',
       '@pages': '/src/pages',
       '@routes': '/src/routes',
+      '@configs': '/src/configs',
     },
   }
 })

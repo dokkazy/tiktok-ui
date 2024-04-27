@@ -4,7 +4,7 @@
     border-radius: 4px;
     font-size: 1.6rem;
     font-weight: 700;
-    font-family: 'TikTokFont', 'IBM Plex Sans', 'sans-serif';
+    font-family: var(--font-family);
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -49,16 +49,16 @@
     }
 }
 .primary {
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     color: var(--white-color) !important;
-    border-color: var(--primary);
+    border-color: var(--primary-color);
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
-        border-color: var(--primary);
+        border-color: var(--primary-color);
     }
 }
 .outline {
-    color: var(--primary);
+    color: var(--primary-color);
     border-color: currentColor;
 
     &:hover {

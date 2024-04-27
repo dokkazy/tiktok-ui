@@ -6,17 +6,20 @@ import HeadlessTippy from '@tippyjs/react/headless';
 
 import styles from './Search.module.scss'
 import { Wrapper as PopperWrapper } from "@components/Popper";
-import AccountItem from '@components/AccountItem'
+import MemoizedRenderSearch from './RenderSearch';
 import { SearchIcon } from '@/components/Icons';
-import handleLogError from '@/utils/handleLogError';
+import { useDebounce } from '@hooks'
+import { search } from '@/api/searchApi';
 
 const cx = classNames.bind(styles)
 
 const Search = () => {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
+    const deboundedValue = useDebounce(searchValue, 500);
+
 
     const searchInputRef = useRef(null);
 
@@ -33,21 +36,23 @@ const Search = () => {
     }
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+
+        if (!deboundedValue.trim()) {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then(res => res.json())
-            .then(res => {
-                setSearchResult(res.data);
-            }).catch(error => {
-                handleLogError(error)
-            }).finally(() => {
-                setLoading(false)
-            })
-    }, [searchValue]);
+        const fetchApi = async () => {
+            setLoading(true);
+            const res = await search(deboundedValue);
+            setSearchResult(res);
+            setLoading(false);
+        }
+        fetchApi();
+    }, [deboundedValue]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 
     return (
         <div>
@@ -61,9 +66,9 @@ const Search = () => {
                             <h4 className={cx('search-title')}>
                                 Accounts
                             </h4>
-                            {searchResult.map((item) =>
-                                (<AccountItem key={item.id} data={item} />)
-                            )}
+                            <div className={cx('menu-scrollable')}>
+                                <MemoizedRenderSearch searchResult={searchResult} />
+                            </div>
                         </PopperWrapper>
                     </div>
                 )}
@@ -86,7 +91,7 @@ const Search = () => {
                         </button>
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                    <button className={cx('search-btn')}>
+                    <button className={cx('search-btn')} onMouseDown={handleSubmit}>
                         <SearchIcon />
                     </button>
                 </div>

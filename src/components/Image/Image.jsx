@@ -28,6 +28,6 @@ Image.propTypes = {
     className: PropTypes.string,
     fallback: PropTypes.string,
     // Add other prop validations here if needed
-}
+}   
 
 export default Image
