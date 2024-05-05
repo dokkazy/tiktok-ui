@@ -1,4 +1,4 @@
-import * as request from './customMethod';
+import * as request from '@/api/customMethod';
 import handleLogError from '@/utils/handleLogError';
 import config from '@/configs';
 

@@ -1,0 +1,54 @@
+//SuggestedAccount
+.wrapper {
+    padding-bottom: 16px;
+}
+.label {
+    font-size: 1.4rem;
+    padding: 16px 8px 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #161823bf;
+}
+.see-all {
+    padding: 0 8px;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+//SuggestedAccountItem
+.suggested-account-item {
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.info {
+    flex: 1;
+    margin-left: 12px;
+}
+.username {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+}
+.verified {
+    margin-left: 6px;
+    color: rgb(32, 213, 316);
+}
+.name {
+    font-size: 1.3rem;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 500;
+}

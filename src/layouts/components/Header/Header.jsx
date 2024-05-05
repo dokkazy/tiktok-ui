@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
@@ -17,10 +18,8 @@ import { MENU_ITEMS, userMenu } from './menuItems';
 const cx = classNames.bind(styles)
 
 
-
-
 const Header = () => {
-    const currentUser = true;
+    const [currentUser, setCurrentUser] = useState(false);
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -67,7 +66,7 @@ const Header = () => {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
 
-                            <Image src='https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/f66a9971d2ad397edd4e8e905e19fb39.jpeg?lk3s=a5d48078&x-expires=1713517200&x-signature=MgoEYYRAvR1CLB9As7bPrd86M8I%3D' className={cx('user-avatar')} alt='Nguyen Van A' fallback='https://pethouse.com.vn/wp-content/uploads/2023/10/cho-corgi.jpg' />
+                            <Image src='https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/f66a9971d2ad397edd4e8e905e19fb39.jpeg?lk3s=a5d48078&x-expires=1713517200&x-signature=MgoEYYRAvR1CLB9As7bPrd86M8I%3D' className={cx('user-avatar')} alt='Nguyen Van A' fallback={import.meta.env.VITE_ALTERNATIVE_IMAGE_URL} />
 
                         ) : (
                             <button className={cx('extra-btn')}>

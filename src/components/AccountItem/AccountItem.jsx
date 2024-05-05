@@ -16,15 +16,15 @@ export const AccountItem = ({ data }) => {
                     className={cx('avatar')}
                     src={data.avatar}
                     alt={data.full_name}
-                    fallback='https://pethouse.com.vn/wp-content/uploads/2023/10/cho-corgi.jpg'
+                    fallback={import.meta.env.VITE_ALTERNATIVE_IMAGE_URL}
                 />
                 <div className={cx('info')}>
-                    <h4 className={cx('name')}>
+                    <h4 className={cx('username')}>
                         <span>{data.nickname}</span>
                         {data.tick && <FontAwesomeIcon icon={faCheckCircle} className={cx('verified')} />}
 
                     </h4>
-                    <span className={cx('username')}>{data.full_name}</span>
+                    <span className={cx('name')}>{data.full_name}</span>
                 </div>
             </Link>
     );

@@ -9,7 +9,7 @@ import { Wrapper as PopperWrapper } from "@components/Popper";
 import MemoizedRenderSearch from './RenderSearch';
 import { SearchIcon } from '@/components/Icons';
 import { useDebounce } from '@hooks'
-import { search } from '@/api/searchApi';
+import { search } from '@/api/search/searchApi';
 
 const cx = classNames.bind(styles)
 
